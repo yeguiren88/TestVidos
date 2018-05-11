@@ -1,0 +1,49 @@
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion 27
+}
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives androidSourcesJar
+}
+
+//任务名
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //这里的url是nexus中maven-releases的路径，可以点击copy按钮查看复制
+            repository(url: "http://192.168.2.231:8081/repository/maven-releases/") {
+                // nexus账号的用户名和密码，我这里没用默认的admin
+                authentication(userName: "android", password: "android")
+            }
+            // 下面这三项pom参数，在调用的时候是这个样子 ： compile 'com.jcking.jbottomtabbar:jbottomtabbar:0.0.1'
+            // library的包名
+            pom.groupId = 'com.android.lib'
+            // library的项目名
+            pom.artifactId = 'lib'
+            // library的版本号
+            pom.version = '0.1.2'
+
+            pom.project {
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+            }
+        }
+    }
+}
+

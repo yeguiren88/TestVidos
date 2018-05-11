@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/hadimge"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/nuli" />
+
+    <TextView
+        android:id="@+id/tv_miaoshu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/miaoshu"
+        android:layout_below="@+id/hadimge"
+        />
+
+    <RelativeLayout
+        android:id="@+id/ry_txt"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/tv_miaoshu"
+        >
+
+        <CheckBox
+            android:id="@+id/im_zan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/im_ping"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/checkbox_style"
+            android:button="@null"
+            android:layout_toStartOf="@+id/im_ping"
+            />
+
+        <ImageView
+            android:id="@+id/im_ping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:src="@mipmap/pinglun" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/ry_txt"
+        >
+        <ImageView
+            android:id="@+id/add_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/dianzan"
+            android:visibility="gone"
+            />
+    <TextView
+        android:id="@+id/tv_addView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/ry_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:background="@drawable/et_bg"
+        android:layout_below="@+id/ly_all"
+        android:gravity="center_vertical"
+        >
+        <EditText
+            android:id="@+id/et_ping"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="aaaaaaaaaaa"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:layout_alignParentBottom="true"
+            />
+
+        <TextView
+            android:id="@+id/set"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/et_ping"
+            android:gravity="center"
+            android:background="#F4A460"
+            android:textSize="16sp"
+            android:textColor="@color/wite"
+            android:text="发送" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ry_two"
+        android:background="#D4D4D4"/>
+
+</RelativeLayout>
